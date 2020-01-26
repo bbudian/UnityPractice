@@ -18,6 +18,10 @@ public class KillVolume : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Setup respawn condition
+        Player player = other.gameObject.GetComponent<Player>();
+        if (player == null)
+            return;
+
+        player.Kill();
     }
 }

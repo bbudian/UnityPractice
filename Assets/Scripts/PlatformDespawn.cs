@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public delegate void OnPlatformDespawnEvent(GameObject platform);
+public delegate void OnPlatformDespawnEvent(Platform platform);
 
 public class PlatformDespawn : MonoBehaviour
 {
@@ -23,7 +23,11 @@ public class PlatformDespawn : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        OnPlatformDespawn?.Invoke(other.gameObject);
+        Platform platform = other.gameObject.GetComponent<Platform>();
+        if (platform == null)
+            return;
+
+        OnPlatformDespawn?.Invoke(platform);
         Destroy(other.gameObject);
     }
 }
