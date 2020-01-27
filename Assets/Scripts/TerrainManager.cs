@@ -13,7 +13,7 @@ public class TerrainManager : Singleton<TerrainManager>
         m_PlatformDespawn.OnPlatformDespawn += HandlePlatformDespawn;
     }
 
-    private void HandlePlatformDespawn(GameObject platform)
+    private void HandlePlatformDespawn(Platform platform)
     {
         
     }
